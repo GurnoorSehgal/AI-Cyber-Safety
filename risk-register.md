@@ -18,17 +18,17 @@ This register bridges the gap between frontier AI safety frameworks (ASL, NIST A
 To support the GRC controls above, the following detection logic is integrated into the monitoring stack:
 
 ### 1. Persistence & Execution Detection
-*   **Trigger:** Detection of `attrib.exe` used to hide malicious data staging scripts or "masqueraded" XML files for task creation[cite: 1].
-*   **Log Source:** `norm_id=WindowsSysmon`[cite: 1].
-*   **Mitigation:** Automated alert to the SOC when a non-standard process creates a hidden system file[cite: 1].
+*   **Trigger:** Detection of `attrib.exe` used to hide malicious data staging scripts or "masqueraded" XML files for task creation.
+*   **Log Source:** `norm_id=WindowsSysmon`.
+*   **Mitigation:** Automated alert to the SOC when a non-standard process creates a hidden system file.
 
 ### 2. Unauthorized Exfiltration
-*   **Trigger:** Use of unauthorized cloud storage or web services to move large quantities of data (e.g., model weights)[cite: 1].
+*   **Trigger:** Use of unauthorized cloud storage or web services to move large quantities of data (e.g., model weights).
 *   **Log Source:** Network Flow Logs / Proxy Logs.
 *   **Mitigation:** Automated blocking of outbound traffic to unapproved file-sharing domains for high-tier (ASL-3+) compute clusters.
 
 ### 3. Privilege Escalation
-*   **Trigger:** Unusual process access to `lsass.exe` or attempts to dump credentials from memory[cite: 1].
+*   **Trigger:** Unusual process access to `lsass.exe` or attempts to dump credentials from memory.
 *   **Log Source:** Endpoint Detection & Response (EDR).
 *   **Mitigation:** Isolation of the affected host and mandatory re-authentication via Hardware MFA.
 
